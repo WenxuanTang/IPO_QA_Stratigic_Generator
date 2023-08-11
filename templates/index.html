@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title><br>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"><br>
+    <style>
+        /* Center alignment styles */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            text-align: center;
+
+        /* Resizing the logo image */
+        .logo {
+            width: 500px;  /* Adjust the width as needed */
+            height: auto;  /* Automatically adjust the height to maintain aspect ratio */
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"><br>
+        <h1>IPO Document Search</h1>
+        
+        <form method="POST">
+            
+            <input type="text" name="search_query" placeholder="Search..."><br>
+            <input type="submit" value="Search">
+        </form>
+
+        {% if results %}
+            <h2>Search Results</h2>
+            <ul>
+                {% for result in results %}
+                    <li>
+                        <h3>{{ result.name }}</h3>
+                        <p>{{ result.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

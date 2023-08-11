@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* Center alignment styles */
+        .container {
+            text-align: center;
+        }
+
+        /* Adjust the alignment for specific elements */
+        h1, h2, p, ul, li {
+            text-align: left;
+        }
+
+        /* Resizing the logo image */
+        .logo {
+            width: 1200px;  /* Adjust the width as needed */
+            height: auto;  /* Automatically adjust the height to maintain aspect ratio */
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='img/product.png') }}" alt="Logo" class="logo"><br>
+        <h1>Search Results</h1>
+        <p>Question: {{ query }}</p>
+
+        <h2>Model 1</h2>
+        {% if model1_results %}
+            <ul>
+                <li>
+                    <h3>Search Result:</h3>
+                    <p>{{ model1_results|join }}</p>
+                </li>
+            </ul>
+        {% else %}
+            <p>No Model 1 results found.</p>
+        {% endif %}
+
+        <h2>Model 2</h2>
+        {% if model2_results %}
+            <ul>
+                <li>
+                    <h3>Search Result:</h3>
+                    <p>{{ model2_results|join }}</p>
+                </li>
+            </ul>
+        {% else %}
+            <p>No Model 2 results found.</p>
+        {% endif %}
+
+        <img src="{{ url_for('static', filename='img/step.png') }}" alt="Logo" class="logo"><br>
+    </div>
+    
+</body>
+</html>

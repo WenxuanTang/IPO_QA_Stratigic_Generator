@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        h3 {
+            margin-bottom: 5px;
+        }
+        p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <p>Query: {{ query }}</p>
+    {% if results %}
+        <ul>
+            <li>
+                <h3>Search Result:</h3>
+                <p>{{ results|join }}</p>
+            </li>
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>
+
