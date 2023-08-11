@@ -1,0 +1,1 @@
+# IPO_QA_Stratigic_Generator
